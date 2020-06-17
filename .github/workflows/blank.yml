@@ -33,3 +33,4 @@ jobs:
         sudo mv daemon.json /etc/docker
         echo Modified content
         cat /etc/docker/daemon.json
+        sudo service docker restart
