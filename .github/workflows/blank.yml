@@ -47,6 +47,7 @@ jobs:
         oc login -u system:admin
         oc apply -f openjdk18-image-stream.json -n openshift
         oc login -u developer -p dummy
-        oc run -i -t busybox --image=busybox --command=true cat /etc/resolv.conf
+        oc run mydc --image=registry.access.redhat.com/ubi8/openjdk-8 --command=true sleep 3600
+        oc exec mydc cat /etc/resolv.conf
         
         
