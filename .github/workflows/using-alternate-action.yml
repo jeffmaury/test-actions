@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI-alternate
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -26,7 +26,7 @@ jobs:
     - uses: manusa/actions-setup-openshift@v1.0.3
       name: Set up oc
       with:
-        version: 'v3.11.0'
+        oc version: 'v3.11.0'
     - name: Start cluster
       run: |
         oc cluster add service-catalog
