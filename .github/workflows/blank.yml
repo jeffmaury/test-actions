@@ -34,8 +34,8 @@ jobs:
         echo Modified content
         cat /etc/docker/daemon.json
         sudo service docker restart
-        docker run -it registry.access.redhat.com/ubi8/openjdk-8 cat /etc/resolv.conf
-        docker run -it registry.access.redhat.com/ubi8/openjdk-8 curl https://repo1.maven.org  
+        docker run registry.access.redhat.com/ubi8/openjdk-8 cat /etc/resolv.conf
+        docker run registry.access.redhat.com/ubi8/openjdk-8 curl https://repo1.maven.org  
     - uses: lstocchi/openshift-actions@1.6.12
       name: Set up oc
       with:
