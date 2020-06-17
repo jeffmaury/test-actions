@@ -27,8 +27,9 @@ jobs:
       run: |
         echo Add other actions to build,
         ls /etc/docker
+        echo Original content
         cat /etc/docker/daemon.json
-        cat /etc/docker/daemon.json > daemon.json
-        echo '{"insecure-registries": ["172.30.0.0/16"]}' >> daemon.json
+        jq '. += {"insecure-registries": ["172.30.0.0/16"]}' /etc/docker/daemon.json >daemon.json
         sudo mv daemon.json /etc/docker
+        echo Modified content
         cat /etc/docker/daemon.json
