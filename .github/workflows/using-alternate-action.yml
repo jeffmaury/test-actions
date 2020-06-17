@@ -34,7 +34,7 @@ jobs:
         curl https://raw.githubusercontent.com/minishift/minishift/master/addons/xpaas/v3.10/xpaas-streams/openjdk18-image-stream.json --location --output openjdk18-image-stream.json
         oc login -u system:admin
         oc apply -f openjdk18-image-stream.json -n openshift
-        oc get cm -n kube-system
+        oc get cm -n kube-dns
         oc login -u developer -p dummy
         oc run mydc --image=registry.access.redhat.com/ubi8/ubi --generator=run-pod/v1 --command=true sleep 3600
         while (echo && oc get pods | grep -v -E "(Running|Completed|STATUS)");do sleep 5; done
