@@ -28,3 +28,5 @@ jobs:
         echo Add other actions to build,
         ls /etc/docker
         cat /etc/docker/daemon.json
+        echo '{"insecure-registries": ["172.30.0.0/16"]}' >> /etc/docker/daemon.json
+        cat /etc/docker/daemon.json
