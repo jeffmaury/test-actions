@@ -46,11 +46,6 @@ jobs:
         oc login -u system:admin
         oc get cm -n kube-dns
         oc login -u developer -p dummy
-        oc apply -f https://raw.githubusercontent.com/openshift/origin/master/examples/hello-openshift/hello-pod.json
-        while (echo && oc get pods | grep -v -E "(Running|Completed|STATUS)");do sleep 5; done
-        oc exec hello-openshift cat /etc/resolv.conf
-        oc exec hello-openshift curl https://redhat.com
-        oc delete pod/hello-openshift
         oc run mydc --image=registry.access.redhat.com/ubi8/ubi --generator=run-pod/v1 --command=true sleep 3600
         while (echo && oc get pods | grep -v -E "(Running|Completed|STATUS)");do sleep 5; done
         oc exec mydc cat /etc/resolv.conf
